@@ -455,7 +455,7 @@ export function EditingForm({
             <CardHeader className='flex items-start justify-between border-b border-white/10 pb-4'>
                 <div>
                     <div className='flex items-center'>
-                        <CardTitle className='py-1 text-lg font-medium text-white'>Edit Image</CardTitle>
+                        <CardTitle className='py-1 text-lg font-medium text-white'>修改图片</CardTitle>
                         {isPasswordRequiredByBackend && (
                             <Button
                                 variant='ghost'
@@ -467,7 +467,7 @@ export function EditingForm({
                             </Button>
                         )}
                     </div>
-                    <CardDescription className='mt-1 text-white/60'>Modify an image using gpt-image-1.</CardDescription>
+                    <CardDescription className='mt-1 text-white/60'> 使用gpt-image-1修改图片</CardDescription>
                 </div>
                 <ModeToggle currentMode={currentMode} onModeChange={onModeChange} />
             </CardHeader>
@@ -475,11 +475,11 @@ export function EditingForm({
                 <CardContent className='flex-1 space-y-5 overflow-y-auto p-4'>
                     <div className='space-y-1.5'>
                         <Label htmlFor='edit-prompt' className='text-white'>
-                            Prompt
+                            提示词
                         </Label>
                         <Textarea
                             id='edit-prompt'
-                            placeholder='e.g., Add a party hat to the main subject'
+                            placeholder='例如, "将这张图片中的天空改为夜空，添加星星和月亮"'
                             value={editPrompt}
                             onChange={(e) => setEditPrompt(e.target.value)}
                             required
@@ -489,7 +489,7 @@ export function EditingForm({
                     </div>
 
                     <div className='space-y-2'>
-                        <Label className='text-white'>Source Image(s) [Max: 10]</Label>
+                        <Label className='text-white'>原图 [最多: 10张]</Label>
                         <Label
                             htmlFor='image-files-input'
                             className='flex h-10 w-full cursor-pointer items-center justify-between rounded-md border border-white/20 bg-black px-3 py-2 text-sm transition-colors hover:bg-white/5'>
@@ -535,7 +535,7 @@ export function EditingForm({
                     </div>
 
                     <div className='space-y-3'>
-                        <Label className='block text-white'>Mask</Label>
+                        <Label className='block text-white'>蒙版</Label>
                         <Button
                             type='button'
                             variant='outline'
@@ -678,46 +678,46 @@ export function EditingForm({
                     </div>
 
                     <div className='space-y-3'>
-                        <Label className='block text-white'>Size</Label>
+                        <Label className='block text-white'>尺寸</Label>
                         <RadioGroup
                             value={editSize}
                             onValueChange={(value) => setEditSize(value as EditingFormData['size'])}
                             disabled={isLoading}
                             className='flex flex-wrap gap-x-5 gap-y-3'>
-                            <RadioItemWithIcon value='auto' id='edit-size-auto' label='Auto' Icon={Sparkles} />
-                            <RadioItemWithIcon value='1024x1024' id='edit-size-square' label='Square' Icon={Square} />
+                            <RadioItemWithIcon value='auto' id='edit-size-auto' label='自动' Icon={Sparkles} />
+                            <RadioItemWithIcon value='1024x1024' id='edit-size-square' label='1024x1024' Icon={Square} />
                             <RadioItemWithIcon
                                 value='1536x1024'
                                 id='edit-size-landscape'
-                                label='Landscape'
+                                label='1536x1024'
                                 Icon={RectangleHorizontal}
                             />
                             <RadioItemWithIcon
                                 value='1024x1536'
                                 id='edit-size-portrait'
-                                label='Portrait'
+                                label='1024x1536'
                                 Icon={RectangleVertical}
                             />
                         </RadioGroup>
                     </div>
 
                     <div className='space-y-3'>
-                        <Label className='block text-white'>Quality</Label>
+                        <Label className='block text-white'>质量</Label>
                         <RadioGroup
                             value={editQuality}
                             onValueChange={(value) => setEditQuality(value as EditingFormData['quality'])}
                             disabled={isLoading}
                             className='flex flex-wrap gap-x-5 gap-y-3'>
-                            <RadioItemWithIcon value='auto' id='edit-quality-auto' label='Auto' Icon={Sparkles} />
-                            <RadioItemWithIcon value='low' id='edit-quality-low' label='Low' Icon={Tally1} />
-                            <RadioItemWithIcon value='medium' id='edit-quality-medium' label='Medium' Icon={Tally2} />
-                            <RadioItemWithIcon value='high' id='edit-quality-high' label='High' Icon={Tally3} />
+                            <RadioItemWithIcon value='auto' id='edit-quality-auto' label='自动' Icon={Sparkles} />
+                            <RadioItemWithIcon value='low' id='edit-quality-low' label='低' Icon={Tally1} />
+                            <RadioItemWithIcon value='medium' id='edit-quality-medium' label='中' Icon={Tally2} />
+                            <RadioItemWithIcon value='high' id='edit-quality-high' label='高' Icon={Tally3} />
                         </RadioGroup>
                     </div>
 
                     <div className='space-y-2'>
                         <Label htmlFor='edit-n-slider' className='text-white'>
-                            Number of Images: {editN[0]}
+                            图片数量: {editN[0]}
                         </Label>
                         <Slider
                             id='edit-n-slider'
@@ -737,7 +737,7 @@ export function EditingForm({
                         disabled={isLoading || !editPrompt || imageFiles.length === 0}
                         className='flex w-full items-center justify-center gap-2 rounded-md bg-white text-black hover:bg-white/90 disabled:bg-white/10 disabled:text-white/40'>
                         {isLoading && <Loader2 className='h-4 w-4 animate-spin' />}
-                        {isLoading ? 'Editing...' : 'Edit Image'}
+                        {isLoading ? '修改...' : '修改图片'}
                     </Button>
                 </CardFooter>
             </form>
